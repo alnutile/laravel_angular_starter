@@ -1,0 +1,62 @@
+{
+	"name": "laravel/laravel",
+	"description": "The Laravel Framework.",
+	"keywords": ["framework", "laravel"],
+	"license": "MIT",
+	"require": {
+		"laravel/framework": "4.2.*",
+        "itsgoingd/clockwork": "1.*",
+        "league/fractal": "0.8.*",
+        "pda/pheanstalk": "~2.0",
+        "symfony/process": "2.5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.0",
+        "way/generators": "2.*",
+        "fzaninotto/faker": "v1.3.0",
+        "behat/mink-zombie-driver": "*",
+        "behat/mink": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium-driver": "*",
+        "behat/mink-selenium2-driver": "*",
+        "behat/mink-extension": "dev-CommandTimeout",
+        "behat/mink-sahi-driver": "*"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/alnutile/MinkExtension.git"
+        }
+    ],
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		],
+        "psr-0": {
+            "ScreenShooter": "app"
+        }
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+    "config": {
+        "preferred-install": "dist",
+        "bin-dir": "bin/"
+    },
+	"minimum-stability": "stable"
+}
